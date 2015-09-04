@@ -1,0 +1,32 @@
+﻿<Window x:Class="DrawPolygon.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DrawPolygon"
+        mc:Ignorable="d"
+        Title="Draw Polygon" Height="525" Width="625">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Canvas Background="FloralWhite"
+                MouseLeftButtonDown="Canvas_MouseLeftButtonDown"
+                MouseRightButtonDown="Canvas_MouseRightButtonDown"
+                MouseMove="Canvas_MouseMove"
+                KeyDown="Canvas_KeyUp">
+            <local:VisualHost x:Name="Host"/>
+        </Canvas>
+        <StatusBar Grid.Row="1" >
+            <StatusBar.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Rows="1"/>
+                </ItemsPanelTemplate>
+            </StatusBar.ItemsPanel>
+            <StatusBarItem Margin="6,0,0,0" HorizontalAlignment="Left" Content="New vertex - left mouse click"/>
+            <StatusBarItem HorizontalAlignment="Center" Content="Finish - right mouse click"/>
+            <StatusBarItem Margin="0,0,6,0" HorizontalAlignment="Right" Content="Clear - Ctrl + right mouse click"/>
+        </StatusBar>
+    </Grid>
+</Window>
